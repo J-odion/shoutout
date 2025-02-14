@@ -2,7 +2,7 @@ import axios from "axios";
 
 // Create axios instance
 const apiClient = axios.create({
-  baseURL: "http://localhost:5001/api", // Backend URL
+  baseURL: "https://shoutoutbnd.onrender.com/api", // Backend URL
   headers: {
     "Content-Type": "application/json",
   },

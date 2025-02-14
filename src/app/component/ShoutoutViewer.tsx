@@ -48,6 +48,7 @@ export default function ShoutoutViewer() {
       {!showWordCloud && (
         <div className=' bg-blue-950/20 md:w-2/4 w-3/4 mx-auto backdrop-blur-md p-6 rounded-lg shadow-lg'>
         <h2 className='text-3xl text-center text-red-500 font-bold ' > View your shoutout</h2>
+        <h2 className='hidden'>{senderName}</h2>
         <p className="text-blue-950 mb-6 text-xs text-center w-full">Select your name to view your shoutout</p>
         {errorMessage && <p className="text-red-500">{errorMessage}</p>}
         {isLoading && <p>Loading...</p>}

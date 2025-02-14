@@ -7,11 +7,12 @@ const AnimatedBackground = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas) return; // Ensure canvas is available
 
     const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    if (!ctx) return; // Ensure ctx is available before using it
 
+    // Set canvas size
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 
@@ -19,7 +20,7 @@ const AnimatedBackground = () => {
 
     function createHeart() {
       return {
-        x: Math.random() * canvas.width,
+        x: Math.random() * (canvas?.width ?? 0),
         y: -20,
         size: Math.random() * 20 + 10,
         speed: Math.random() * 2 + 1,
@@ -31,6 +32,8 @@ const AnimatedBackground = () => {
     }
 
     function drawHeart(x: number, y: number, size: number) {
+      if (!ctx) return; // Ensure ctx is not null
+
       ctx.beginPath();
       ctx.moveTo(x, y + size / 4);
       ctx.quadraticCurveTo(x, y, x + size / 4, y);
@@ -46,6 +49,8 @@ const AnimatedBackground = () => {
     }
 
     function animate() {
+      if (!ctx || !canvas) return; // Ensure ctx and canvas are available
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
       hearts.forEach((heart, index) => {
@@ -63,6 +68,7 @@ const AnimatedBackground = () => {
     animate();
 
     const handleResize = () => {
+      if (!canvas) return;
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
     };

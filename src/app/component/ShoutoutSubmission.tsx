@@ -23,6 +23,7 @@ export default function ShoutoutSubmission({ onCheckShoutouts }: { onCheckShouto
 
     try {
       await sendShoutOut({ sender: senderName || 'Anonymous', recipient: selectedStaff, message });
+      setSenderName(senderName)
       setSuccessMessage('Shoutout submitted successfully!');
       setStep(3);
     } catch (error) {
@@ -41,7 +42,7 @@ export default function ShoutoutSubmission({ onCheckShoutouts }: { onCheckShouto
       {successMessage && <p className="text-green-500  text-center w-full">{successMessage}</p>}
       {step === 1 && <ShoutoutForm type="select" onSubmit={handleStaffSelect} />}
       {step === 2 && <ShoutoutForm type="message" onSubmit={handleShoutoutSubmit} recipient={selectedStaff} />}
-      {step === 3 && <button onClick={onCheckShoutouts} className="btn text-red-500 border p-2 rounded-md  border-red-500 mt-5 text-xs">Check Your Shoutouts</button>}
+      {step === 3 && <button disabled={loading} onClick={onCheckShoutouts} className="btn text-red-500 border p-2 rounded-md  border-red-500 mt-5 text-xs">Check Your Shoutouts</button>}
     </div>
   );
 }
