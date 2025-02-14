@@ -6,11 +6,12 @@ import WordCloud from './WordCloud';
 import { getShoutout } from '../utils/api';
 import ShoutoutForm from './Shoutout';
 
-type Shoutout = {
+type ShoutoutProps = {
     sender: string;
     recipient: string;
     message: string;
     createdAt: string;
+    name: string;
   __v: number;
   _id: string;
   };
@@ -18,7 +19,7 @@ type Shoutout = {
 export default function ShoutoutViewer() {
   const [senderName, setSenderName] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [shoutouts, setShoutouts] = useState<Shoutout[]>([]);
+  const [shoutouts, setShoutouts] = useState<ShoutoutProps[]>([]);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [showWordCloud, setShowWordCloud] = useState<boolean>(false);
 
