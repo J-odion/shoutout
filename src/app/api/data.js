@@ -42,7 +42,6 @@ export const staffList = [
     "LILIAN EFANGEBHA AYUK",
     "GBERIKON JOSEPH TERINDE",
     "DORCAS ATABASHIE",
-    "ZUANA SAVIOUR BEMDOO",
     "EMMANUEL OGABA OZOKO",
     "EMMANUEL TANZE",
     "HYELNI PAUL MSHELIA",
@@ -115,7 +114,6 @@ export const staffList = [
     "MRS. CHIAMAKA ONUEGBU",
     "SOLOMON ALAGHDE",
     "PATIENCE IGBUDU",
-    "VIVIAN JOHN",
     "JENNIFER OZEGBE"
   ];
   
